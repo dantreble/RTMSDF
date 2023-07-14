@@ -63,7 +63,7 @@ static bool readDouble(double &output, const char *&pathDef) {
 #ifdef MSDFGEN_USE_CRT_SECURE
     if (sscanf_s(pathDef, "%lf%n", &v, &shift) == 1) {
 #else
-    if (sscanf_s(pathDef, "%lf%n", &v, &shift) == 1) {
+    if (sscanf(pathDef, "%lf%n", &v, &shift) == 1) {
 #endif
         pathDef += shift;
         output = v;
@@ -80,7 +80,7 @@ static bool readBool(bool &output, const char *&pathDef) {
 #ifdef MSDFGEN_USE_CRT_SECURE
     if (sscanf_s(pathDef, "%d%n", &v, &shift) == 1) {
 #else
-    if (sscanf_s(pathDef, "%d%n", &v, &shift) == 1) {
+    if (sscanf(pathDef, "%d%n", &v, &shift) == 1) {
 #endif
         pathDef += shift;
         output = v != 0;

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Richard Meredith AB. All Rights Reserved
+// Copyright (c) Richard Meredith AB. All Rights Reserved
 
 #pragma once
 
@@ -35,7 +35,7 @@ struct FRTMSDFTextureSettingsCache
 		bFlipGreenChannel = false;
 
 		// restore if there is a new value, or set to default value
-#define CACHE(field, defaultValue) field = texture ? texture->field : defaultValue
+#define CACHE(field, defaultValue) field = defaultValue
 		CACHE(AddressX, TA_Clamp);
 		CACHE(AddressY, TA_Clamp);
 #undef  CACHE

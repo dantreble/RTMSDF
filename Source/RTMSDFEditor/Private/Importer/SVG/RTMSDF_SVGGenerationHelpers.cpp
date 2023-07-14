@@ -1,6 +1,4 @@
-﻿// Copyright (c) Richard Meredith AB. All Rights Reserved
-
-#pragma once
+// Copyright (c) Richard Meredith AB. All Rights Reserved
 
 #include "RTMSDF_SVGGenerationHelpers.h"
 #include "Importer/RTMSDFTextureSettingsCache.h"
@@ -22,7 +20,7 @@ namespace RTMSDFGenerationHelpers
 			input[i] = static_cast<char>(buffer[i]);		// TODO - memcpy here;
 
 		bool builtShape = buildShapeFromSvgFileBuffer(outShape, input, bufferLen, 0, &outSvgDims);
-		delete(input);
+        delete[](input);
 
 		if(builtShape)
 		{
