@@ -11,11 +11,12 @@ public class ChlumskyMSDFGen : ModuleRules
 		CppStandard = CppStandardVersion.Cpp17;
 
 		PublicDependencyModuleNames.Add("Core");
+		
+		PrivateDependencyModuleNames.Add("FreeType2");
 
 		PrivateIncludePaths.AddRange(
 			new string[]
 			{
-				"ChlumskyMSDFGen/Public/Freetype/include/",
 				"ChlumskyMSDFGen/Public/Core/",
 				"ChlumskyMSDFGen/Public/Ext/",
 			});
@@ -30,10 +31,13 @@ public class ChlumskyMSDFGen : ModuleRules
 		if (UnrealTargetPlatform.Win64 == Target.Platform)
 			PrivateDefinitions.Add("MSDFGEN_USE_CRT_SECURE");
 
-		var freetypeLibPath = Path.Combine(ModuleDirectory, "Public", "Freetype");
 		if (UnrealTargetPlatform.Win64 == Target.Platform || UnrealTargetPlatform.Linux == Target.Platform ||
 		    UnrealTargetPlatform.Mac == Target.Platform)
-			PublicAdditionalLibraries.Add(Path.Combine(freetypeLibPath, "win64", "freetype.lib"));
+		{
+			AddEngineThirdPartyPrivateStaticDependencies(Target, "FreeType2");
+			AddEngineThirdPartyPrivateStaticDependencies(Target, "zlib");
+			AddEngineThirdPartyPrivateStaticDependencies(Target, "UElibPNG");
+		}
 
 		bUseUnity = false;
 	}
