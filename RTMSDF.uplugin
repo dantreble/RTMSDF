@@ -17,7 +17,7 @@
 	"Modules": [
 		{
 			"Name": "RTMSDFEditor",
-			"Type": "Editor",
+			"Type": "UncookedOnly",
 			"LoadingPhase": "PreDefault"
 		},
 		{
